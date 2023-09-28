@@ -21,8 +21,17 @@
       text-align: center;
       text-shadow: 1px 1px 2px white, 1px 1px 6px red;
       letter-spacing: 3px;
+      
+    }
+    p{
+      margin-top: -50px;
+      width: 480px;
+      display: flex;
+      justify-content: center;
+      font-size: 1.1rem;
       padding-bottom: 2rem;
     }
+    
   </style>
   <body></body>
   <script>
@@ -39,8 +48,10 @@
         if (i < time) {
           const container = document.createElement("header");
           const heading1 = document.createElement("h1");
+          const colorValue=document.createElement("p")
+          colorValue.innerText=`RGB (${rgb()})`;
           heading1.innerText = "Good Morning";
-          container.append(heading1);
+          container.append(heading1,colorValue);
           document.body.appendChild(container);
 
           document.body.style.background = `rgb(${rgb()})`;
@@ -53,6 +64,10 @@
     }
 
     changeColor(100);
+    let b=20;
+    let a= `${b}`
+    console.log(a)
+    console.log(typeof a)
 
     // console.log(typeof rgb())
     // console.log( rgb())
