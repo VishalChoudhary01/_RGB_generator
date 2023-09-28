@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RGB Generator</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Karla:wght@800&family=Merriweather:wght@900&display=swap");
+
+    header {
+      width: 480px;
+      /* min-height: 100vh; */
+      margin: 0 auto;
+    }
+    h1 {
+      display: flex;
+      justify-content: center;
+      font-size: 4rem;
+      font-family: "Merriweather", serif;
+      text-align: center;
+      text-shadow: 1px 1px 2px white, 1px 1px 10px red;
+      letter-spacing: 3px;
+    }
+  </style>
+  <body></body>
+  <script>
+    const rgb = function () {
+      let r = Math.floor(Math.random() * 256);
+      let g = Math.floor(Math.random() * 256);
+      let b = Math.floor(Math.random() * 256);
+      return `${r},${g},${b}`;
+    };
+    function changeColor(time) {
+      let i = 0;
+
+      function setColor() {
+        if (i < time) {
+          const container = document.createElement("header");
+          const heading1 = document.createElement("h1");
+          heading1.innerText = "Good Morning";
+          container.append(heading1);
+          document.body.appendChild(container);
+
+          document.body.style.background = `rgb(${rgb()})`;
+          i++;
+          setTimeout(setColor, 1000);
+        }
+      }
+
+      setColor();
+    }
+
+    changeColor(50);
+
+    // console.log(typeof rgb())
+    // console.log( rgb())
+    // console.log(`(${typeof rgb()})`)
+  </script>
+</html>
